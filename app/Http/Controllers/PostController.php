@@ -2,25 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\post;
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
     public function index()
     {
         return view('posts.index');
     }
-
+    public function show()
+    {
+        return view('posts.show');
+    }
     public function create()
     {
-        //Create New Post
+        return view('posts.create');
     }
-    public function update($id)
+    public function store()
     {
-        //Update Posts
-    }
-    public function delete($id)
-    {
-        //Delete Specific Post
+        $this -> validate(request(), [
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        post::create(request(['title', 'link', 'content']));
+
+        return redirect('/');
     }
 }
