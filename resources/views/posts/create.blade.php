@@ -20,9 +20,9 @@
     			<label for="content">Text</label>
     			<input class="form-control" type="text" name="content" required>
     		</div><!-- /form-group -->
+            <input type="hidden" name="user" value="{{}}">
 
     		<button type="submit" class="btn btn-primary">Submit</button>
-
             @include('partials.errors')
     	</form>
       </article>

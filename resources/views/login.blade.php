@@ -5,14 +5,14 @@
         <div class="col mt-5">
             <h1>Login</h1>
 
-            @include('partials.errors');
+            @include('partials.errors')
 
             <form action="{{ url('login') }}" method="post">
                 {{ csrf_field() }}
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input class="form-control" type="email" name="email" placeholder="elisabeth.moss@yrgo.se">
+                    <input class="form-control" type="email" name="email">
                 </div><!-- /form-group -->
 
                 <div class="form-group">

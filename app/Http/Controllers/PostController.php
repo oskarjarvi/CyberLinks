@@ -11,11 +11,16 @@ class PostController extends Controller
 
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::all();
+
+        return view('index', compact('posts'));
     }
-    public function show()
+    public function show($id)
     {
-        return view('posts.show');
+        if ($post = Post::find($id)) {
+            return view('posts.show', compact('post'));
+        }
+        abort(404);
     }
     public function create()
     {
@@ -28,7 +33,7 @@ class PostController extends Controller
             'content' => 'required'
         ]);
 
-        post::create(request(['title', 'link', 'content']));
+        post::create(request(['title', 'link', 'content',]));
 
         return redirect('/');
     }

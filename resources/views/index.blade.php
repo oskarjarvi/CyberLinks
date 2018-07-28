@@ -7,7 +7,12 @@
             <p></p>
             <ul>
                 @foreach ($posts as $post)
-                    <li>{{ $post->title }}</li>
+
+                    <a href="/posts/{{$post->id}}">
+                        {{$post->title}}
+                    </a>
+                    <li>{{$post->link}} </li>
+                    <li>{{$post->content}} </li>
                 @endforeach
             </ul>
         </div><!-- /col -->
