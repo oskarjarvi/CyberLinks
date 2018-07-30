@@ -40,7 +40,7 @@
                             </li><!-- /nav-item -->
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('sign')}}">Sign up</a>
+                                <a class="nav-link" href="{{url('register')}}">Sign up</a>
                             </li><!-- /nav-item -->
                         @endif
                     </ul>

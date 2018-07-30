@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
-        if (Auth::attempt($credentials)) {
+        if (auth()->attempt($credentials)) {
             return redirect('/');
         }
         return back()->withErrors('Whoops. Looks like you missed something there. Please try again.');
@@ -20,7 +20,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout();
+        auth()->logout();
         return redirect('/');
     }
 }

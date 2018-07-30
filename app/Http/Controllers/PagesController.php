@@ -18,4 +18,8 @@ class PagesController extends Controller
     {
         return view('about');
     }
+    public function register()
+    {
+        return view('user.create');
+    }
 }
