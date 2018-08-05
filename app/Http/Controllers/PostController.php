@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\post;
+use App\vote;
 
 use Illuminate\Http\Request;
 
@@ -38,7 +39,6 @@ class PostController extends Controller
         auth()->user()->publish(
             new Post(request(['title','link', 'content']))
         );
-
 
         return redirect('/');
     }

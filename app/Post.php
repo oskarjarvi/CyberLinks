@@ -16,7 +16,11 @@ class Post extends Model
     }
     public function comments()
     {
-        return$this->hasMany(Comments::class);
+        return $this->hasMany(Comments::class);
+    }
+    public function votes()
+    {
+        return $this->hasMany(Post::class);
     }
     public function addComment($body)
     {
