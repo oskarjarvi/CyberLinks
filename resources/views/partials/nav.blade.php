@@ -29,7 +29,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('profile')}}">Profile</a>
+                                <a class="nav-link" href="/profile/{{auth()->id()}}">Profile</a>
                             </li>
 
                         @else

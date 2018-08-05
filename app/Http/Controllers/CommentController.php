@@ -14,4 +14,12 @@ class CommentController extends Controller
 
         return back();
     }
+    public function update()
+    {
+
+    }
+    public function delete()
+    {
+
+    }
 }

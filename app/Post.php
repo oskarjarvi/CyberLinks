@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $fillable = [
-        'title', 'link', 'content',
+        'title', 'link', 'content'
     ];
     public function user()
     {
@@ -20,6 +20,6 @@ class Post extends Model
     }
     public function addComment($body)
     {
-        $this->comments()->create(['body' => $body]);
+        $this->comments()->create(['body' => $body,'user_id' => auth()->id()]);
     }
 }

@@ -12,7 +12,7 @@
     		</div><!-- /form-group -->
 
     		<div class="form-group">
-    			<label for="content">Link</label>
+    			<label for="link">Link</label>
     			<input class="form-control" type="url" name="link" value="https://"required>
     		</div><!-- /form-group -->
 
