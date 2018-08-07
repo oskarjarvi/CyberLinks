@@ -14,6 +14,7 @@
                     <p>{{$post->link}} </p>
                     <p>{{$post->content}} </p>
 
+                    <h3>Score: {{$post->vote_count}}</h3>
                     <form class="" action="/votes/{{$post->id}}" method="post">
                         {{ csrf_field() }}
                         <button type="submit" name="upvote" class="btn btn-primary">Upvote </button>

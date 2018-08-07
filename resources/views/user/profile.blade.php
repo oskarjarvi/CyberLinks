@@ -42,8 +42,8 @@
                     </div><!-- /form-group -->
 
                     <div class="img_url">
-                            <label for="myImage">Choose a PNG image to upload</label>
-                            <input type="file" name="myImage" accept=".png">
+                            <label for="image">Choose a PNG image to upload</label>
+                            <input type="file" name="image" accept=".png">
                             <button type="submit">Upload</button>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>

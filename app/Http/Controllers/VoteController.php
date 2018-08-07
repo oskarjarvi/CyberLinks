@@ -26,9 +26,4 @@ class VoteController extends Controller
 
         return back();
     }
-    public function votes()
-    {
-        $votes = Vote::all()->where('post_id', $post)->sum('vote_count');
-        return $votes;
-    }
 }

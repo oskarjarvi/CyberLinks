@@ -14,6 +14,12 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
+        foreach ($posts as $post)
+        {
+            $votes = Vote::where('post_id', '=', $post->id)->get();
+            $post->vote_count = $votes->sum('vote_count');
+        }
+
         return view('index', compact('posts'));
     }
     public function show($id)

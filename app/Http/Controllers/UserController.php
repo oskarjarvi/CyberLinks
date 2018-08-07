@@ -38,9 +38,9 @@ class UserController extends Controller
             abort(404);
 
         }
-        public function update()
+        public function update($id)
         {
-            $user = auth()->user();
+            $user = User::find($id);
 
             if (!$user)
             {
@@ -51,15 +51,15 @@ class UserController extends Controller
                 'email' => 'required|email',
                 'password' => 'required|confirmed'
             ]);
+            $img = request('image')->storeAs('images', $user->name.'.jpg');
 
             $user->update(
                 [
                 'name' => request('name'),
                 'email' => request('email'),
-                'password'=> bcrypt(request('password'))
+                'password'=> bcrypt(request('password')),
+                'img_url' => $img,
                 ]);
-
             return back();
-
         }
     }
