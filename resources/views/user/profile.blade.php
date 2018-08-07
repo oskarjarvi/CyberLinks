@@ -14,7 +14,7 @@
         </div>
         <div class="update">
             <article>
-                <form  method="POST" action="{{$user->id}}/update">
+                <form  method="POST" action="{{$user->id}}/update" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <h2 class="form-signin-heading">Edit Your Profile</h2>
                     <div class="form-group">
@@ -39,14 +39,12 @@
                         <label for="password_confirmation">Password Confirmation</label>
                         <input class="form-control" type="password" name="password_confirmation" required>
                         <small class="form-text text-muted">Please confirm your password</small>
-                    </div><!-- /form-group -->'
+                    </div><!-- /form-group -->
 
                     <div class="img_url">
-                        <form action="app/user/uploadImage.php" method="post" enctype="multipart/form-data">
                             <label for="myImage">Choose a PNG image to upload</label>
                             <input type="file" name="myImage" accept=".png">
                             <button type="submit">Upload</button>
-                        </form>
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>
 

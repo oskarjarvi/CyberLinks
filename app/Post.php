@@ -20,10 +20,14 @@ class Post extends Model
     }
     public function votes()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Vote::class);
     }
     public function addComment($body)
     {
         $this->comments()->create(['body' => $body,'user_id' => auth()->id()]);
+    }
+    public function addVote($vote)
+    {
+        $this->votes()->create(['vote_count' => $vote,'user_id' => auth()->id()]);
     }
 }

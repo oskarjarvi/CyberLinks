@@ -19,4 +19,4 @@ Route::post('profile/{user}/update', 'UserController@update');
 
 Route::post('/{post}/comments', 'CommentController@store');
 
-Route::post('votes', 'VoteController@store');
+Route::post('votes/{post}', 'VoteController@store');

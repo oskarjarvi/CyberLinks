@@ -5,33 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Vote;
+use App\post;
+
 
 class VoteController extends Controller
 {
-    public function store()
+    public function store(Post $post)
     {
-        $votes = 0;
+        $vote = 0;
 
         if(request()->has('upvote'))
         {
-            $votes = 1;
+            $vote = 1;
         }
-        if(request()->has('downvote'))
+        else if(request()->has('downvote'))
         {
-            $votes = -1;
+            $vote = -1;
         }
-
-        Vote::create([
-            'vote_count'=> $votes,
-            'user_id' => auth()->id(),
-            'post_id' => request('post_id')
-        ]);
-        $votes = Vote::all()->where('post_id', 1)->sum('vote_count');
+        $post->addVote($vote);
 
         return back();
     }
     public function votes()
     {
-
+        $votes = Vote::all()->where('post_id', $post)->sum('vote_count');
+        return $votes;
     }
 }

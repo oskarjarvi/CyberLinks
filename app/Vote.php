@@ -10,7 +10,7 @@ class Vote extends Model
         'vote_count', 'user_id', 'post_id',
     ];
 
-    public function posts()
+    public function post()
     {
         return$this->belongsTo(Post::class);
     }
