@@ -51,7 +51,9 @@ class UserController extends Controller
                 'email' => 'required|email',
                 'password' => 'required|confirmed'
             ]);
-            $img = request('image')->storeAs('images', $user->name.'.jpg');
+            $userName = $user->name;
+
+            $img = request('image')->storeAs('images', $userName.'.jpg');
 
             $user->update(
                 [
