@@ -30,10 +30,12 @@ class PostController extends Controller
         }
         abort(404);
     }
+
     public function create()
     {
         return view('posts.create');
     }
+
     public function store()
     {
         $this -> validate(request(),
@@ -48,6 +50,16 @@ class PostController extends Controller
 
         return redirect('/');
     }
+
+    public function edit($id)
+    {
+        if ($post = Post::find($id))
+        {
+            return view('posts.edit', compact('post'));
+        }
+        abort(404);
+    }
+
     public function update($id)
     {
         $post = Post::find($id);
@@ -68,7 +80,7 @@ class PostController extends Controller
             'content' => request('content'),
             ]);
 
-        return back();
+        return redirect('');
     }
     public function delete($id)
     {
