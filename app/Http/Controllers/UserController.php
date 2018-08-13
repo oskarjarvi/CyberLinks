@@ -28,14 +28,16 @@ class UserController extends Controller
             auth()->login($user);
 
             return redirect('/');
+            session()->flash('message', 'You are now signed up and logged in');
         }
 
         public function profile()
         {
             if($user = auth()->user())
             {
-                $post = Post::where('user_id', '=', $user->id)->get();
-                return view('user.profile', compact('post'));
+                $posts = Post::where('user_id', '=', $user->id)->get();
+
+                return view('user.profile', compact('user', 'posts'));
             }
             abort(404);
 
@@ -63,7 +65,7 @@ class UserController extends Controller
                 'password' => 'required|confirmed'
             ]);
 
-            $img = 'images/placeholder';
+            $img = 'images/placeholder.png';
 
             if(request('image'))
             {
@@ -80,6 +82,7 @@ class UserController extends Controller
                 'password'=> bcrypt(request('password')),
                 'img_url' => $img,
                 ]);
+                session()->flash('message', 'Your profile has been updated');
             return back();
         }
         public function delete($id)
@@ -88,6 +91,7 @@ class UserController extends Controller
 
             $user->delete();
 
+            session()->flash('message', 'Your account has now been removed');
             return redirect('');
         }
     }

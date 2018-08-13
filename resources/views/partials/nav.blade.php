@@ -13,9 +13,6 @@
                             <a class="nav-link" href="{{ url('/') }}">Home</a>
                         </li><!-- /nav-item -->
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('about') }}">About</a>
-                        </li><!-- /nav-item -->
                     </ul>
 
                     <ul class ="navbar-nav ml-auto justify-content-end">

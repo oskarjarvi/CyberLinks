@@ -48,6 +48,8 @@ class PostController extends Controller
             new Post(request(['title','link', 'content']))
         );
 
+        session()->flash('message', 'Your Post has now been published.');
+
         return redirect('/');
     }
 
@@ -80,6 +82,7 @@ class PostController extends Controller
             'content' => request('content'),
             ]);
 
+            session()->flash('message', 'Your post is now updated');
         return redirect('');
     }
     public function delete($id)
@@ -87,5 +90,10 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $post->delete();
+
+        session()->flash('message', 'Your post is now deleted');
+
+
+        return back();
     }
 }

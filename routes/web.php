@@ -5,6 +5,7 @@ Route::post('posts', 'PostController@store');
 
 Route::get('posts/{post}', 'PostController@show');
 Route::get('posts/{post}/edit', 'PostController@edit');
+Route::get('posts/{post}/delete', 'PostController@delete');
 Route::post('posts/{post}', 'PostController@update');
 
 Route::get('about', 'PagesController@about');
