@@ -10478,12 +10478,14 @@ a.text-dark:focus {
 }
 
 #flash-message {
-  -webkit-animation: flash-message 4s forwards;
-          animation: flash-message 4s forwards;
+  width: 50%;
+  -webkit-animation: flash 6s forwards;
+          animation: flash 6s forwards;
   position: absolute;
+  z-index: 10;
 }
 
-@-webkit-keyframes flash-message {
+@-webkit-keyframes flash {
   0% {
     opacity: 1;
   }
@@ -10494,7 +10496,7 @@ a.text-dark:focus {
   }
 }
 
-@keyframes flash-message {
+@keyframes flash {
   0% {
     opacity: 1;
   }
@@ -10503,5 +10505,22 @@ a.text-dark:focus {
     opacity: 0;
     display: none;
   }
+}
+
+.profile {
+  width: 45%;
+  height: 400px;
+  margin-top: 5vh;
+  float: left;
+}
+
+.p {
+  float: right;
+}
+
+.post {
+  padding: 10px;
+  margin-top: 5vh;
+  width: 45%;
 }
 

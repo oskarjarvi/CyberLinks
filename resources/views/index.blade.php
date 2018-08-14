@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col">
                 @foreach ($posts as $post)
-                    <div class="card col-md-8">
+                    <div class="post card col-md-8">
                     <h2><a href="/posts/{{$post->id}}">
                         {{$post->title}}
                     </a></h2>

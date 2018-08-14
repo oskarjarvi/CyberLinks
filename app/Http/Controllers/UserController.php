@@ -82,7 +82,9 @@ class UserController extends Controller
                 'password'=> bcrypt(request('password')),
                 'img_url' => $img,
                 ]);
+
                 session()->flash('message', 'Your profile has been updated');
+
             return back();
         }
         public function delete($id)

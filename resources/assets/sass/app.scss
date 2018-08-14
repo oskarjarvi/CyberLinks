@@ -14,13 +14,29 @@
 }
 #flash-message
 {
-    animation: flash-message 4s forwards;
+    width:50%;
+    animation: flash 6s forwards;
     position: absolute;
+    z-index: 10;
 }
-@keyframes flash-message {
+@keyframes flash {
     0% {opacity: 1;}
     100% {opacity: 0; display: none;}
 }
-.card {
-
+.profile
+{
+    width:45%;
+    height:400px;
+    margin-top:5vh;
+    float:left;
+}
+.p
+{
+    float:right;
+}
+.post
+{
+    padding:10px;
+    margin-top:5vh;
+    width:45%;
 }
