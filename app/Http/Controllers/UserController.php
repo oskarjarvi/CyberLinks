@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
+use \File;
 use App\User;
 use App\post;
 
@@ -70,31 +70,36 @@ class UserController extends Controller
 
             if(request('image'))
             {
-            $userName = $user->name;
+                $userName = $user->name;
 
-            $img = request('image')->storeAs('images', $userName.'.jpg');
+                if(File::exists($user->name.'.jpg'))
+                {
+                    File::delete('storage/images/'.$user->name.'.jpg');
+                }
+
+                $img = request('image')->storeAs('images', $userName.'.jpg');
             }
 
             $user->update(
                 [
-                'name' => request('name'),
-                'email' => request('email'),
-                'biography' => request('biography'),
-                'password'=> bcrypt(request('password')),
-                'img_url' => $img,
+                    'name' => request('name'),
+                    'email' => request('email'),
+                    'biography' => request('biography'),
+                    'password'=> bcrypt(request('password')),
+                    'img_url' => $img,
                 ]);
 
                 session()->flash('message', 'Your profile has been updated');
 
-            return back();
-        }
-        public function delete($id)
-        {
-            $user = User::find($id);
+                return back();
+            }
+            public function delete($id)
+            {
+                $user = User::find($id);
 
-            $user->delete();
+                $user->delete();
 
-            session()->flash('message', 'Your account has now been removed');
-            return redirect('');
+                session()->flash('message', 'Your account has now been removed');
+                return redirect('');
+            }
         }
-    }
