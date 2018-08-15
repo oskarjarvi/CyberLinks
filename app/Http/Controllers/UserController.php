@@ -62,7 +62,8 @@ class UserController extends Controller
             $this -> validate(request(), [
                 'name' => 'required',
                 'email' => 'required|email',
-                'password' => 'required|confirmed'
+                'password' => 'required|confirmed',
+                'images' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
             ]);
 
             $img = 'images/placeholder.png';

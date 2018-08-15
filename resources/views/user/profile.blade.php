@@ -8,7 +8,7 @@
         </p>
         <p>Email: {{$user->email}}</p>
         <p> Biography: {{$user->biography}} </p>
-            <img src="{{asset($user->img_url)}}">
+        <p> {{asset($user->img_url)}} </p>
             <hr>
             <a class="btn btn-primary" href="{{url('profile/'.$user->id.'/edit')}}">Edit Profile</a>
             <a class="btn btn-danger" href="{{url('profile/'.$user->id.'/delete')}}"> Delete User</a>
