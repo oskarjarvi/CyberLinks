@@ -11,7 +11,7 @@
                     <p>
                         posted: {{$post->created_at->toFormattedDateString()}}
                     </p>
-                    <p>{{$post->link}} </p>
+                    <a href="{{$post->link}}">{{$post->link}} </a>
                     <p>{{$post->content}} </p>
 
                     <h3>Score: {{$post->vote_count}}</h3>
