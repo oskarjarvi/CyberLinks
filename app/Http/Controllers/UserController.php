@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
 
-use \File;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\post;
 
@@ -63,7 +63,6 @@ class UserController extends Controller
                 'name' => 'required',
                 'email' => 'required|email',
                 'password' => 'required|confirmed',
-                'images' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
             ]);
 
             $img = 'images/placeholder.png';
@@ -71,11 +70,6 @@ class UserController extends Controller
             if(request('image'))
             {
                 $userName = $user->name;
-
-                if(File::exists($user->name.'.jpg'))
-                {
-                    File::delete('storage/images/'.$user->name.'.jpg');
-                }
 
                 $img = request('image')->storeAs('images', $userName.'.jpg');
             }
