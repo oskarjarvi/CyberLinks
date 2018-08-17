@@ -49,7 +49,7 @@ class UserController extends Controller
                 return view('user.edit', compact('user'));
             }
             abort(404);
-            return redirect('user/profile');
+            return redirect('profile');
         }
         public function update($id)
         {
@@ -85,7 +85,7 @@ class UserController extends Controller
 
                 session()->flash('message', 'Your profile has been updated');
 
-                return back();
+                return redirect()->route('profile', [$id]);
             }
             public function delete($id)
             {
@@ -94,6 +94,6 @@ class UserController extends Controller
                 $user->delete();
 
                 session()->flash('message', 'Your account has now been removed');
-                return redirect('');
+                return redirect('register');
             }
         }

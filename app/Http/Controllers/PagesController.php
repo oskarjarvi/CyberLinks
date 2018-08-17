@@ -14,10 +14,6 @@ class PagesController extends Controller
     {
         return view('login');
     }
-    public function about()
-    {
-        return view('about');
-    }
     public function register()
     {
         return view('user.create');
